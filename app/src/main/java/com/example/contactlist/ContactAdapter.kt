@@ -19,11 +19,11 @@ package com.example.contactlist
         }
 
         override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
-            var currentTweet =ContactList.get(position)
+            var currentContact =ContactList.get(position)
             var  binding=holder.binding
-            binding.tvName.text=currentTweet.name
-            binding.tvPhoneNumber.text=currentTweet.phoneNumber.toString()
-            binding.tvEmailAddress.text =currentTweet.emailAddress
+            binding.tvName.text=currentContact.name
+            binding.tvPhoneNumber.text=currentContact.phoneNumber.toString()
+            binding.tvEmailAddress.text =currentContact.emailAddress
 
         }
     }
