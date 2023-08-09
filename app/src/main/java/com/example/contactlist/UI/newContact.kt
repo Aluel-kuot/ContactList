@@ -1,13 +1,20 @@
-package com.example.contactlist
+package com.example.contactlist.UI
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.Contacts
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
+import com.example.contactlist.Model.ContactData
+import com.example.contactlist.R
 import com.example.contactlist.databinding.ActivityNewContactBinding
+import com.example.contactlist.viewmodel.ContactViewModel
 
 class NewContact : AppCompatActivity() {
     lateinit var binding: ActivityNewContactBinding
+    val contactViewModel:ContactViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewContactBinding.inflate(layoutInflater)
@@ -18,11 +25,9 @@ class NewContact : AppCompatActivity() {
 
         }
         binding.btnSave.setOnClickListener {
-            clearErrors()
             validateNew()
         }
     }
-
     fun validateNew() {
         val name = binding.etName.text.toString()
         val phoneNumber = binding.etPhoneNumber.text.toString()
@@ -30,31 +35,24 @@ class NewContact : AppCompatActivity() {
         var error = false
 
         if (name.isBlank()) {
-            binding.tilName.error = "name is required"
+            binding.tilName.error = getString(R.string.name_is_required)
             error = true
         }
         if (phoneNumber.isBlank()) {
-            binding.tilPhoneNumber.error = "phoneNumber is required"
+            binding.tilPhoneNumber.error = getString(R.string.phonenumber_is_required)
             error = true
         }
         if (email.isBlank()) {
-            binding.tilEmail.error = "email is required"
+            binding.tilEmail.error = getString(R.string.email_is_required)
             error = true
         }
-
         if (!error) {
-            Toast.makeText(
-                this, "$name $phoneNumber $email",
-                Toast.LENGTH_LONG
-            ).show()
+            val newContact= ContactData(contactId = 0, name = name, phoneNumber = phoneNumber, emailAddress = email, imageUrl = email )
+            contactViewModel.saveContact(newContact)
+            Toast.makeText(this,"Contact saved",Toast.LENGTH_LONG).show()
+            finish()
 
         }
     }
 
-    fun clearErrors() {
-        binding.tilName.error = null
-        binding.tilPhoneNumber.error = null
-        binding.tilEmail.error = null
-
-    }
 }

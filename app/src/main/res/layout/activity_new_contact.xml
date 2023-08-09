@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewContact">
+    android:background="#CBD0EA"
+    tools:context=".UI.NewContact">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPhoneNumber"
@@ -22,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:drawableLeft="@drawable/baseline_phone_24"
-            android:textSize="24sp"
             android:hint="PhoneNumber"
+            android:textSize="24sp"
             tools:ignore="RtlHardcoded" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,11 +87,13 @@
         android:layout_height="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="252dp"
+        android:layout_marginBottom="218dp"
         android:background="#00BCD4"
         android:shadowColor="#3F51B5"
         android:text="Save"
         android:textColor="#3F51B5"
         android:textColorHint="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
 
