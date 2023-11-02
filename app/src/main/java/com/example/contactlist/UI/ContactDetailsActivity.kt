@@ -40,9 +40,6 @@ class ContactDetailsActivity : AppCompatActivity() {
         binding.btnDelete.setOnClickListener {
         }
 
-
-
-
         viewModel = ContactViewModel()
         val contactId = intent.getIntExtra("CONTACT_ID", 0)
         viewModel.getContactsById(contactId).observe(this, Observer{ contact ->

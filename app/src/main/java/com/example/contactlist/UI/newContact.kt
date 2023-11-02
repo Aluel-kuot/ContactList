@@ -22,7 +22,6 @@ class NewContact : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
         }
         binding.btnSave.setOnClickListener {
             validateNew()

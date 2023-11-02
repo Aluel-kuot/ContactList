@@ -15,7 +15,7 @@ import com.example.contactlist.Model.ContactData
         @Query("SELECT * FROM Contacts ORDER BY name")
         fun getAllContacts():LiveData<List<ContactData>>
 
-    @Query("SELECT * FROM Contacts WHERE contactId = :contactId")
+    @Query("SELECT * FROM Contacts WHERE contactId= :contactId")
     fun getContactById(contactId: Int): LiveData<ContactData>
     }
 
