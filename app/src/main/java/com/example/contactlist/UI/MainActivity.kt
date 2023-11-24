@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     val contactViewModel:ContactViewModel by viewModels()
     lateinit var btnAddContact:Button
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityMainBinding.inflate(layoutInflater)
@@ -28,6 +30,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         }
+
+
     override fun onResume() {
         super.onResume()
         contactViewModel.getContacts().observe(this, Observer { contactList-> displayContact(contactList) })

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CBD0EA"
+    android:background="#F4F4F8"
     tools:context=".UI.NewContact">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -27,17 +27,6 @@
             android:textSize="24sp"
             tools:ignore="RtlHardcoded" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/ivImage"
-        android:layout_width="333dp"
-        android:layout_height="147dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="55dp"
-        android:src="@drawable/baseline_person_outline_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
@@ -66,11 +55,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage">
+        tools:layout_editor_absoluteY="161dp"
+        tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etName"
@@ -86,8 +75,8 @@
         android:layout_width="99dp"
         android:layout_height="64dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="252dp"
-        android:layout_marginBottom="218dp"
+        android:layout_marginEnd="236dp"
+        android:layout_marginBottom="150dp"
         android:background="#00BCD4"
         android:shadowColor="#3F51B5"
         android:text="Save"
@@ -95,19 +84,33 @@
         android:textColorHint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="99dp"
         android:layout_height="64dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="150dp"
         android:background="#00BCD4"
         android:text="Back"
         android:textColor="#3F51B5"
         android:textColorLink="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="168dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

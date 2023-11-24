@@ -13,7 +13,7 @@ package com.example.contactlist.UI
     import com.squareup.picasso.Picasso
     import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
-class ContactAdapter(var contactList:List<ContactData>,var context:Context ): RecyclerView.Adapter<ContactViewHolder>() {
+class ContactAdapter(private var contactList:List<ContactData>, private var context:Context ): RecyclerView.Adapter<ContactViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val binding =
             ContactListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -31,6 +31,7 @@ class ContactAdapter(var contactList:List<ContactData>,var context:Context ): Re
         Picasso
             .get()
             .load(currentContact.imageUrl)
+
             .placeholder(R.drawable.mary)
             .error(R.drawable.mary)
             .transform(CropCircleTransformation())
